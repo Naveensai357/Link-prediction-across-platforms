@@ -5,7 +5,7 @@ This project implements a **cross-domain link prediction system** that connects 
 
 We integrate real-world tweet content, hashtags, semantic topics, and GitHub repository metadata to form a rich heterogeneous graph. The system learns to recommend relevant GitHub repositories to users based on their social media activity.
 
-> 📄 Published Report: [sns.pdf](./sns%20(1).pdf)  
+> 📄 Published Report: [sns.pdf]
 > 🧠 Model Framework: PyTorch Geometric + GraphSAGE + MLP  
 > 📊 Visualization: Interactive Graph using PyVis
 
@@ -42,5 +42,31 @@ We integrate real-world tweet content, hashtags, semantic topics, and GitHub rep
 
 Install the required libraries:
 
-```bash
-pip install torch torch-geometric scikit-learn pyvis
+bash
+    pip install torch torch-geometric scikit-learn pyvis
+
+##Run Instructions
+bash
+python your_script_name.py
+
+Input Files
+India.csv — Twitter dataset
+repository.csv — GitHub dataset
+
+The script will:
+
+Clean & preprocess datasets
+
+Construct heterogeneous graph
+
+Train HeteroGNN + LinkPredictor
+
+Visualize subgraph
+
+Output top-5 recommendations in top_5_repo_predictions_detailed.csv
+
+| Username        | RepoURL                                                                                                | PredictionScore |
+| --------------- | ------------------------------------------------------------------------------------------------------ | --------------- |
+| BoilerRoomTweet | [https://github.com/nikhita/tech-conferences-india](https://github.com/nikhita/tech-conferences-india) | 0.9579          |
+| SkandaGupta5    | [https://github.com/amodm/api-covid19-in](https://github.com/amodm/api-covid19-in)                     | 0.9445          |
+| ...             | ...                                                                                                    | ...             |
